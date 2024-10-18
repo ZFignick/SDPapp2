@@ -1,0 +1,16 @@
+.dashboard {
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard h1 {
+    margin-bottom: 20px;
+}
+
+.dashboard select {
+    margin-bottom: 20px;
+}
+
+.dashboard h2 {
+    margin-top: 20px;
+}
