@@ -1,29 +1,30 @@
-const csv = require("csv-parser");
-const fs = require("fs");
-const path = require("path");
+const axios = require("axios");
 const Education = require("../models/Education");
 
 exports.importEducationData = async (req, res) => {
-  try {
-    const filePath = path.join(
-      __dirname,
-      "../data/Education_Directory_20241016.csv",
-    );
-    const results = [];
+  const apiUrl = "https://data.ct.gov/resource/9k2y-kqxn.json";
+  const limit = 1000;
+  let offset = 0;
+  let allData = [];
 
-    fs.createReadStream(filePath)
-      .pipe(csv())
-      .on("data", (data) => results.push(data))
-      .on("end", async () => {
-        try {
-          await Education.insertMany(results);
-          res
-            .status(200)
-            .json({ message: "Data imported successfully", data: results });
-        } catch (error) {
-          res.status(500).json({ message: error.message });
-        }
+  try {
+    while (true) {
+      const response = await axios.get(apiUrl, {
+        params: {
+          $limit: limit,
+          $offset: offset,
+        },
       });
+
+      const data = response.data;
+      if (data.length === 0) break;
+
+      allData = allData.concat(data);
+      offset += limit;
+    }
+
+    await Education.insertMany(allData);
+    res.status(200).json({ message: "Data imported successfully", data: allData });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

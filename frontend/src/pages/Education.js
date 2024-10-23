@@ -1,6 +1,7 @@
 // src/pages/Education.js
 import React, { useEffect, useState } from "react";
 import { getEducationData } from "../services/educationService";
+import "./Education.css";
 
 const Education = () => {
   const [educationData, setEducationData] = useState([]);
@@ -19,29 +20,29 @@ const Education = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Education</h1>
-      <table>
-        <thead>
+      <div className="education-container">
+        <h1>Education</h1>
+        <table className="education-table">
+          <thead>
           <tr>
             <th>School Name</th>
             <th>Performance</th>
             <th>Vaccination Rate</th>
             <th>Resources</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {educationData.map((school, index) => (
-            <tr key={index}>
-              <td>{school.schoolName}</td>
-              <td>{school.performance}</td>
-              <td>{school.vaccinationRate}</td>
-              <td>{school.resources}</td>
-            </tr>
+              <tr key={index}>
+                <td>{school.school_name}</td>
+                <td>{school.performance}</td>
+                <td>{school.vaccination_rate}</td>
+                <td>{school.resources}</td>
+              </tr>
           ))}
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
   );
 };
 
