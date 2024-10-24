@@ -1,11 +1,12 @@
 // src/pages/Housing.js
 import React from "react";
+import HousingTable from "../components/HousingTable";
 
 const Housing = () => {
   return (
     <div>
       <h1>Housing</h1>
-      {/* Add content to show affordable housing availability, trends in housing prices, and government assistance programs */}
+      <HousingTable />
     </div>
   );
 };

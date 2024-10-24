@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getWellbeingScore } from "../services/WellbeingService";
 import ResourceMap from "../components/ResourceMap";
-import "../components/Dashboard.css";
+import "./../styles/Dashboard.css";
 
 const Dashboard = () => {
   const [score, setScore] = useState(null);

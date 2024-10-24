@@ -1,9 +1,11 @@
 // src/pages/Education.js
 import React, { useEffect, useState } from "react";
 import { getEducationData } from "../services/educationService";
-import "./Education.css";
+import "./../styles/Education.css";
+import EducationTable from "../components/EducationTable";
 
 const Education = () => {
+  /*
   const [educationData, setEducationData] = useState([]);
 
   useEffect(() => {
@@ -17,9 +19,17 @@ const Education = () => {
     };
 
     fetchData();
-  }, []);
+  }, []);*/
 
   return (
+      <div className="education-page">
+          <h1>Education Data</h1>
+          <h1>
+              NOTE: For Grade levels offered, a value of '1' corresponds to 'YES' and a value of '0' Corresponds to 'NO'.
+          </h1>
+          <EducationTable/>
+      </div>
+      /*
       <div className="education-container">
         <h1>Education</h1>
         <table className="education-table">
@@ -42,7 +52,7 @@ const Education = () => {
           ))}
           </tbody>
         </table>
-      </div>
+      </div>*/
   );
 };
 
