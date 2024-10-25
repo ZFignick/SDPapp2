@@ -1,0 +1,26 @@
+/* src/styles/ResourceMap.css */
+.map-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.filters button {
+    padding: 10px 20px;
+    cursor: pointer;
+}

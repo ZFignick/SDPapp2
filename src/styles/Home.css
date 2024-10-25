@@ -1,0 +1,40 @@
+@import url('https://fonts.cdnfonts.com/css/general-sans');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .map-container {
+        @apply w-[500px] h-[500px] mb-5 mx-auto bg-black flex justify-center;
+    }
+
+    .filters {
+        @apply flex justify-center mt-8 mb-5;
+    }
+
+    .filters button {
+        @apply mr-2 py-0.5 px-0.5 border-2 border-white text-white cursor-pointer text-lg rounded-md mt-2 mb-0.5 flex justify-center bg-black;
+    }
+
+    .filters button:hover {
+        @apply text-[#BEC1CF];
+    }
+
+    .team-members {
+        @apply flex flex-col items-center mb-5;
+    }
+
+    .team-member {
+        @apply my-2.5;
+    }
+
+    .team-member-button {
+        @apply bg-[#1a1a80] text-neutral-300 py-2.5 px-5 rounded-md text-center text-lg hover:text-white transition-colors;
+    }
+
+    .team-member-button strong {
+        @apply block text-xl mb-1.5;
+    }
+
+}

@@ -1,0 +1,18 @@
+/* src/styles/Home.css */
+.link-button {
+    display: inline-block;
+    background-color: white;
+    color: blue;
+    padding: 10px 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link-button:hover {
+    background-color: blue;
+    color: white;
+}

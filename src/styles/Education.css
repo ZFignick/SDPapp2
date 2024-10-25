@@ -1,0 +1,33 @@
+/* src/pages/Education.css */
+.education-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin-top: 200px;
+}
+
+.education-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+.education-table th,
+.education-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.education-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.education-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.education-table tr:hover {
+    background-color: #ddd;
+}
