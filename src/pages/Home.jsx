@@ -116,9 +116,9 @@ const Home = () => {
             <h1 className="text-blue-200 text-3xl font-extrabold mt-10 mb-2 flex justify-center items-center">Dataset Links</h1>
             <div className="link-buttons mt-5 mb-10">
                 <a href="https://www.bls.gov/oes/tables.htm" target="_blank" rel="noopener noreferrer"
-                   className="link-button">Employment rates</a>
+                   className="link-button">Employment Rates</a>
                 <a href="https://www.bls.gov/regions/northeast/summary/blssummary_hartford.pdf" target="_blank"
-                   rel="noopener noreferrer" className="link-button">Economic summary</a>
+                   rel="noopener noreferrer" className="link-button">Economic Summary</a>
             </div>
 
             <h1 className="text-blue-200 text-3xl font-extrabold mt-10 mb-5 flex justify-center items-center">Local
