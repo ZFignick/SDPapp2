@@ -1,6 +1,7 @@
 .dashboard {
     padding: 20px;
     text-align: center;
+    color: white;
 }
 
 .dashboard h1 {
@@ -13,4 +14,8 @@
 
 .dashboard h2 {
     margin-top: 20px;
+}
+
+select, option {
+    color: black;
 }
