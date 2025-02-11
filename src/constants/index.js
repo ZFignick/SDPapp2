@@ -10,11 +10,6 @@ export const navLinks = [
         name: 'Dashboard',
         href: '/dashboard',
     },
-    {
-        id: 3,
-        name: 'Disparity Highlighting',
-        href: '/disparity-highlighting',
-    },
     // {
     //     id: 4,
     //     name: 'Education',
@@ -26,26 +21,11 @@ export const navLinks = [
         href: '/housing',
     },
     {
-        id: 6,
-        name: 'Map',
-        href: '/map-container',
-    },
-    {
         id: 7,
         name: 'Resources',
         href: '/resources',
     },
-    {
-        id: 8,
-        name: 'Services',
-        href: '/access-to-services',
-    },
-    {
-        id: 9,
-        name: 'Wellbeing Score',
-        href: '/aggregate-wellbeing-score',
-    },
-
+    // add more as needed
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
