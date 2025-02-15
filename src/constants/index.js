@@ -15,11 +15,11 @@ export const navLinks = [
         name: 'Disparity Highlighting',
         href: '/disparity-highlighting',
     },
-    {
-        id: 4,
-        name: 'Education',
-        href: '/education',
-    },
+    // {
+    //     id: 4,
+    //     name: 'Education',
+    //     href: '/education',
+    // },
     {
         id: 5,
         name: 'Housing',
