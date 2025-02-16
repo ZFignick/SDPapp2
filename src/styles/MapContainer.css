@@ -52,10 +52,29 @@
     color: #1a1a80; 
 }
 
+
+.location-list {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px;
+    overflow-y: auto; 
+    min-width: 350px; 
+    max-width: 400px; 
+    box-sizing: border-box;
+}
+
+
 .scrollable-cards {
     overflow-y: auto;
-    max-height: calc(100vh - 100px);
+    overflow-x: hidden;
+    max-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .location-card {
     background: #333;
@@ -63,7 +82,28 @@
     border-radius: 8px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    max-width: 100%;
 }
+
+.location-card:hover {
+    background-color: #444;
+    transform: scale(1.02);
+}
+
+.location-card h3 {
+    margin: 0;
+    color: #f0f0f0;
+}
+
+.location-card p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+
+
 .reset-button {
     margin-top: 10px;
     padding: 10px 15px;
