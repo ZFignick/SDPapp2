@@ -7,7 +7,7 @@ import "../styles/MapContainer.css";
 const hartfordPosition = [41.7658, -72.6734]; // Hartford, CT center
 
 const resources = [
-    { id: 1, type: "government", position: [41.7658, -72.6734], name: "Government Building" },
+    { id: 1, type: "government", position: [41.7627, -72.6739], name: "Hartford City Hall" },
     { id: 2, type: "education", position: [41.7688, -72.6754], name: "School" },
     { id: 3, type: "medical", position: [41.7628, -72.6714], name: "Hospital" }
 ];
@@ -31,7 +31,7 @@ const MoveToLocation = ({ position }) => {
     
     React.useEffect(() => {
         if (position) {
-            map.flyTo(position, 18, { duration: 1.5 }); // **Exact zoom to location**
+            map.flyTo(position, 18, { duration: 1.5 });
         }
     }, [position, map]);
 
@@ -41,6 +41,7 @@ const MoveToLocation = ({ position }) => {
 const MapPage = () => {
     const [resetTrigger, setResetTrigger] = useState(false);
     const [selectedPosition, setSelectedPosition] = useState(null);
+    const [filter, setFilter] = useState("all"); // Default filter to show all locations
 
     const handleResetClick = () => {
         setResetTrigger(true);
@@ -50,9 +51,11 @@ const MapPage = () => {
     const handleCardClick = (id) => {
         const selectedResource = resources.find(resource => resource.id === id);
         if (selectedResource) {
-            setSelectedPosition(selectedResource.position); // Update position
+            setSelectedPosition(selectedResource.position); 
         }
     };
+
+    const filteredResources = filter === "all" ? resources : resources.filter(resource => resource.type === filter);
 
     return (
         <div className="map-page">
@@ -64,7 +67,7 @@ const MapPage = () => {
                     />
                     <ResetMapView resetTrigger={resetTrigger} />
                     <MoveToLocation position={selectedPosition} />
-                    {resources.map((resource) => (
+                    {filteredResources.map((resource) => (
                         <Marker key={resource.id} position={resource.position}>
                             <Popup>{resource.name}</Popup>
                         </Marker>
@@ -72,20 +75,36 @@ const MapPage = () => {
                 </MapContainer>
             </div>
 
+      
             <div className="location-list">
-                <div className="scrollable-cards">
-                    {resources.map((resource) => (
-                        <div
-                            key={resource.id}
-                            className="location-card"
-                            onClick={() => handleCardClick(resource.id)}
-                        >
-                            <h3>{resource.name}</h3>
+                <div className="list-container">
+                    
+                  
+                    <div className="filters-container">
+                        <div className="filters">
+                            <button onClick={() => setFilter("all")}>All</button>
+                            <button onClick={() => setFilter("government")}>Government</button>
+                            <button onClick={() => setFilter("education")}>Schools</button>
+                            <button onClick={() => setFilter("medical")}>Hospitals</button>
                         </div>
-                    ))}
+                    </div>
+
+                 
+                    <div className="cards-container">
+                        {filteredResources.map((resource) => (
+                            <div
+                                key={resource.id}
+                                className="location-card"
+                                onClick={() => handleCardClick(resource.id)}
+                            >
+                                <h3>{resource.name}</h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+
+                <button onClick={handleResetClick} className="reset-button">Reset Map</button>
             </div>
-            <button onClick={handleResetClick} className="reset-button">Reset Map</button>
         </div>
     );
 };
